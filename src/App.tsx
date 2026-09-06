@@ -1020,7 +1020,7 @@ function ApiSetupGuide({
 				<div className="api-guide-head">
 					<KeyRound size={24} />
 					<span>
-						<b id="api-guide-title">配置 60s API</b>
+						<b id="api-guide-title">配置 QHC API</b>
 						<small>默认不再内置公共域名，避免启动时消耗作者实例额度。</small>
 					</span>
 				</div>

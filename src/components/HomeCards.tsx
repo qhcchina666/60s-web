@@ -255,7 +255,7 @@ export function QuoteCard({ data }: { data?: unknown }) {
 		<article className="quote-card">
 			<span>“</span>
 			<p>{text}</p>
-			<small>60s API 随机一言</small>
+			<small>QHC API 随机一言</small>
 		</article>
 	);
 }

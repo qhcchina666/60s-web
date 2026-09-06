@@ -124,7 +124,7 @@ export function Footer({
 						rel="noreferrer"
 					>
 						<img src="/favicon.png" alt="60s logo" width={18} height={18} />
-						<strong>60s</strong>
+						<strong>QHC HOT</strong>
 						<small>API</small>
 						<Github size={15} />
 					</a>
