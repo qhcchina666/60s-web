@@ -28,9 +28,7 @@ import type {
 	ToolDefinition,
 	WallpaperMode,
 } from "./types";
-
 export const CACHE_TTL = 10 * 60 * 1000;
-
 export const STORAGE_KEYS = {
 	apiBase: "60s-web:api-base",
 	city: "60s-web:city",
@@ -48,15 +46,24 @@ export const STORAGE_KEYS = {
 	quickFavorites: "60s-web:quick-favorites",
 } as const;
 
+// ============ 新增：首次访问自动填充API，关闭引导弹窗 ============
+const MY_API_URL = "https://hotapi.qhc.cc.cd"
+if (typeof localStorage !== "undefined") {
+  if (!localStorage.getItem(STORAGE_KEYS.apiBase)) {
+    localStorage.setItem(STORAGE_KEYS.apiBase, MY_API_URL)
+  }
+  localStorage.setItem(STORAGE_KEYS.apiGuideDismissed, "true")
+}
+// ================================================================
+
 export const nav = [
 	{ id: "home" as const, label: "首页", icon: Home },
 	{ id: "hot" as const, label: "热榜", icon: BarChart3 },
 	{ id: "news" as const, label: "新闻", icon: Newspaper },
 	{ id: "weather" as const, label: "天气", icon: CloudSun },
 	{ id: "tools" as const, label: "工具", icon: LayoutGrid },
-	{ id: "settings" as const, label: "设置", icon: Settings },
+	{ id: "settings" as const, label: Settings },
 ];
-
 export const hotTabs = [
 	{ id: "weibo", label: "微博", path: "/weibo" },
 	{ id: "zhihu", label: "知乎", path: "/zhihu" },
@@ -64,7 +71,6 @@ export const hotTabs = [
 	{ id: "douyin", label: "抖音", path: "/douyin" },
 	{ id: "toutiao", label: "头条", path: "/toutiao" },
 ];
-
 export const defaultQuickFavorites: QuickFavoriteId[] = [
 	"daily",
 	"hot-weibo",
@@ -74,7 +80,6 @@ export const defaultQuickFavorites: QuickFavoriteId[] = [
 	"gold",
 	"tools",
 ];
-
 export const quickActions: QuickActionDefinition[] = [
 	{
 		id: "daily",
@@ -156,7 +161,6 @@ export const quickActions: QuickActionDefinition[] = [
 		target: { page: "tools", toolId: "palette" },
 	},
 ];
-
 export const searchProviders: Array<{
 	id: SearchProviderId;
 	label: string;
@@ -168,7 +172,6 @@ export const searchProviders: Array<{
 	{ id: "chatgpt", label: "ChatGPT", sub: "问答" },
 	{ id: "doubao", label: "豆包", sub: "对话" },
 ];
-
 export const wallpaperOptions: Array<{
 	id: WallpaperMode;
 	label: string;
@@ -180,7 +183,6 @@ export const wallpaperOptions: Array<{
 	{ id: "dawn", label: "晨光", sub: "暖色氛围" },
 	{ id: "custom", label: "自定义", sub: "本地图片" },
 ];
-
 export const chromeThemes: Array<{
 	id: ChromeTheme;
 	label: string;
@@ -190,7 +192,6 @@ export const chromeThemes: Array<{
 	{ id: "floating", label: "悬浮", sub: "浮层卡片" },
 	{ id: "minimal", label: "极简", sub: "轻边界" },
 ];
-
 export const colorThemes: Array<{
 	id: ColorTheme;
 	label: string;
@@ -199,7 +200,6 @@ export const colorThemes: Array<{
 	{ id: "light", label: "浅色", sub: "清爽白昼" },
 	{ id: "dark", label: "暗色", sub: "夜间低亮" },
 ];
-
 export const mobileNavModes: Array<{
 	id: MobileNavMode;
 	label: string;
@@ -209,7 +209,6 @@ export const mobileNavModes: Array<{
 	{ id: "bottom", label: "底部导航", sub: "单手操作更顺手" },
 	{ id: "top", label: "顶部导航", sub: "释放底部空间" },
 ];
-
 export const toolDefinitions: ToolDefinition[] = [
 	{
 		id: "translate",
@@ -236,13 +235,11 @@ export const toolDefinitions: ToolDefinition[] = [
 		sub: "色彩搭配",
 	},
 ];
-
 export const EPIC_COVER_PLACEHOLDER =
 	"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='172' height='116' viewBox='0 0 172 116'><rect width='172' height='116' rx='12' fill='%23f3f6f8'/><rect x='16' y='16' width='140' height='84' rx='10' fill='%23e7eef3'/><path d='M36 82l24-26 18 18 26-30 32 38H36z' fill='%23c9d6df'/><circle cx='58' cy='44' r='9' fill='%23d7e3ea'/><text x='86' y='104' text-anchor='middle' font-size='12' fill='%23667885' font-family='Arial, sans-serif'>Epic Cover</text></svg>";
 export const API_REPO_URL = "https://github.com/vikiboss/60s";
 export const WEB_REPO_URL = "https://github.com/dogxii/60s-web";
 export const API_DOCS_URL = "https://docs.60s-api.viki.moe/7306811m0";
-
 export const categoryLabels: Record<EndpointDefinition["category"], string> = {
 	periodic: "周期资讯",
 	utility: "实用功能",
@@ -251,7 +248,6 @@ export const categoryLabels: Record<EndpointDefinition["category"], string> = {
 	beta: "Beta",
 	legacy: "兼容旧版",
 };
-
 export const categoryIcons: Record<EndpointDefinition["category"], typeof Home> = {
 	periodic: CalendarClock,
 	utility: Gauge,
