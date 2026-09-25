@@ -1,4 +1,4 @@
-export const DEFAULT_API_BASE = "";
+export const DEFAULT_API_BASE = "https://hotapi.imqhc.top/v2";
 
 export type ApiCategory =
 	| "periodic"
@@ -354,7 +354,7 @@ export const endpoints: EndpointDefinition[] = [
 		path: "/fuel-price",
 		method: "ANY",
 		description: "按省份查询油价",
-		params: [{ name: "region", label: "地区", defaultValue: "上海" }],
+		params: [{ name: "region", label: "地区", defaultValue: "洛阳" }],
 	},
 	{
 		id: "weather-realtime",
@@ -364,7 +364,7 @@ export const endpoints: EndpointDefinition[] = [
 		method: "GET",
 		description: "腾讯天气实时数据",
 		params: [
-			{ name: "query", label: "城市", defaultValue: "上海", required: true },
+			{ name: "query", label: "城市", defaultValue: "洛阳", required: true },
 		],
 	},
 	{
@@ -375,7 +375,7 @@ export const endpoints: EndpointDefinition[] = [
 		method: "GET",
 		description: "7 天天气预报",
 		params: [
-			{ name: "query", label: "城市", defaultValue: "上海", required: true },
+			{ name: "query", label: "城市", defaultValue: "洛阳", required: true },
 			{ name: "days", label: "天数", defaultValue: "7" },
 		],
 	},
@@ -940,7 +940,7 @@ export const endpoints: EndpointDefinition[] = [
 		path: "/weather",
 		method: "GET",
 		description: "旧路径兼容",
-		params: [{ name: "query", label: "城市", defaultValue: "上海" }],
+		params: [{ name: "query", label: "城市", defaultValue: "洛阳" }],
 	},
 	{
 		id: "legacy-ncm",

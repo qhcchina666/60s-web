@@ -318,7 +318,7 @@ export function SettingsPanel({
 						<input
 							value={city}
 							onChange={(event) => setCity(event.target.value)}
-							placeholder="例如 上海"
+							placeholder="例如 洛阳"
 						/>
 					</label>
 				)}
@@ -626,7 +626,7 @@ export function HomeModuleSettings({
 					<input
 						value={city}
 						onChange={(event) => setCity(event.target.value)}
-						placeholder="例如 上海"
+						placeholder="例如 洛阳"
 					/>
 				</label>
 				<div className="api-base api-setting-row">
